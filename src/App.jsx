@@ -1,10 +1,17 @@
 import React, { useState } from 'react'
+import Intro from './components/intro'
 // const [first, setfirst] = useState(second)
 const App = () => {
+  const [showIntro, setShowIntro] = useState(true)
   const [title, setTitle] = useState('')
   const [details, setDetails] = useState('')
   const [task, setTask] = useState([])
   const [message, setMessage] = useState('')
+  if (showIntro){
+    return<Intro onStart={()=>{
+      setShowIntro(false)
+    }}/>
+  }
   const submitHandler = (e)=>{
     e.preventDefault();
     if (title.trim() === '') {
